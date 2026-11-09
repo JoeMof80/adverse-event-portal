@@ -10,6 +10,13 @@
 | Repo and CI     | GitHub, feature branches, pull requests, GitHub Actions running lint, typecheck, test and build on every PR |
 | Agentic tooling | Claude Code with CLAUDE.md, a custom skill, a subagent and parallel worktrees                               |
 
+## Version pins
+
+- TypeScript is pinned to 5.x. The Vite template now ships TypeScript 7, which typescript-eslint does not yet support.
+- ESLint is pinned to 9.x. eslint-plugin-jsx-a11y does not yet declare support for ESLint 10.
+
+Both pins can be lifted when the upstream plugins catch up.
+
 ## Routing
 
 React Router. The default for a React single-page app and the most common choice in enterprise repos.

@@ -4,18 +4,18 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 1: Project setup
 
-- [ ] Scaffold a Vite project with the React and TypeScript template
-- [ ] Enable TypeScript strict mode and path aliases
-- [ ] Add ESLint with typescript-eslint, react-hooks and jsx-a11y plugins
-- [ ] Add Prettier and an editor config
-- [ ] Add Husky and lint-staged with a pre-commit hook
-- [ ] Add Vitest, React Testing Library, user-event, jest-dom and vitest-axe, with a smoke test
-- [ ] Add npm scripts: dev, build, lint, typecheck, test, format
-- [ ] Write CLAUDE.md covering project conventions, commands and review expectations
-- [ ] Initialise git, create the public GitHub repo, push main
-- [ ] Add a GitHub Actions workflow running lint, typecheck, test and build on pull requests
-- [ ] Enable branch protection requiring the CI check before merge
-- [ ] Enable GitHub Copilot code review on pull requests if available
+- [x] Scaffold a Vite project with the React and TypeScript template
+- [x] Enable TypeScript strict mode and path aliases
+- [x] Add ESLint with typescript-eslint, react-hooks and jsx-a11y plugins
+- [x] Add Prettier and an editor config
+- [x] Add Husky and lint-staged with a pre-commit hook
+- [x] Add Vitest, React Testing Library, user-event, jest-dom and vitest-axe, with a smoke test
+- [x] Add npm scripts: dev, build, lint, typecheck, test, format
+- [x] Write CLAUDE.md covering project conventions, commands and review expectations
+- [x] Initialise git, create the public GitHub repo, push main
+- [x] Add a GitHub Actions workflow running lint, typecheck, test and build on pull requests
+- [x] Enable branch protection requiring the CI check before merge
+- [x] Enable GitHub Copilot code review on pull requests if available
 
 ## Phase 2: Design tokens and primitives
 
