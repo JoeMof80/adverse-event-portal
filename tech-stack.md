@@ -66,4 +66,4 @@ None for now. The app runs locally.
 
 ## Code review
 
-GitHub Copilot code review enabled on pull requests, if available on the account.
+Human review of every pull request, with the PR description recording what generated code was changed or rejected. Copilot code review is not used: it needs a paid plan.

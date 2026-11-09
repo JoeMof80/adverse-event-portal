@@ -15,7 +15,7 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 - [x] Initialise git, create the public GitHub repo, push main
 - [x] Add a GitHub Actions workflow running lint, typecheck, test and build on pull requests
 - [x] Enable branch protection requiring the CI check before merge
-- [x] Enable GitHub Copilot code review on pull requests if available
+- [x] Decided against GitHub Copilot code review: not available on the free plan
 
 ## Phase 2: Design tokens and primitives
 
