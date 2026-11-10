@@ -29,7 +29,10 @@ export function Field({ label, hint, error, optional = false, id: idProp, childr
         required: !optional,
       }}
     >
-      <div className={cx(styles.field, error && styles.hasError)}>
+      <div
+        className={cx(styles.field, error && styles.hasError)}
+        data-invalid={error ? 'true' : undefined}
+      >
         <label htmlFor={id} className={styles.label}>
           {label}
           {optional && <span className={styles.optional}> (optional)</span>}
