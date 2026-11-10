@@ -31,3 +31,4 @@ coverage
 
 # Vercel project link
 .vercel
+.env*
