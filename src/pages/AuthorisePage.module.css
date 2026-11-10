@@ -1,0 +1,45 @@
+.idp {
+  max-width: 32rem;
+  padding: var(--space-5);
+  border: var(--border-width) dashed var(--colour-border);
+  border-radius: var(--radius-lg);
+  background: var(--colour-surface);
+}
+
+.idp > * + * {
+  margin-top: var(--space-4);
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--colour-text);
+  color: var(--colour-text-inverse);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-sm);
+}
+
+.accounts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.account {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  background: var(--colour-surface-raised);
+}
+
+.accountName {
+  font-size: var(--font-size-lg);
+}
+
+.accountRole {
+  font-weight: var(--font-weight-regular);
+  color: var(--colour-text-muted);
+}
