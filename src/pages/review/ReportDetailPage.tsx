@@ -48,15 +48,6 @@ export function ReportDetailPage() {
         <h1>Report {data.id}</h1>
         <StatusTag status={data.status} />
       </div>
-      <SummaryList
-        rows={[
-          { label: 'Submitted', value: formatDateTime(data.submittedAt) },
-          { label: 'Reporter', value: data.reporterName },
-          { label: 'Assigned to', value: data.assignedReviewerName ?? 'Unassigned' },
-          { label: 'Last updated', value: formatDateTime(data.updatedAt) },
-        ]}
-      />
-
       <div className={styles.layout}>
         {/* Actions come first in reading and tab order; the grid places them alongside. */}
         <aside className={styles.side}>
@@ -64,6 +55,14 @@ export function ReportDetailPage() {
           <AuditHistory reportId={data.id} />
         </aside>
         <div className={styles.main}>
+          <SummaryList
+            rows={[
+              { label: 'Submitted', value: formatDateTime(data.submittedAt) },
+              { label: 'Reporter', value: data.reporterName },
+              { label: 'Assigned to', value: data.assignedReviewerName ?? 'Unassigned' },
+              { label: 'Last updated', value: formatDateTime(data.updatedAt) },
+            ]}
+          />
           {reportSections(data).map((section) => (
             <section key={section.title} className={styles.section}>
               <h2>{section.title}</h2>
