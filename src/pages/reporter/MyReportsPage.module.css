@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-2);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.table thead th {
+  border-bottom: var(--border-width) solid var(--colour-border-strong);
+}
+
+.table tbody th {
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}

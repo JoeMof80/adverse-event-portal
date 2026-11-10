@@ -56,21 +56,21 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 5: Adverse event form
 
-- [ ] Write Zod schemas for reporter details, patient details, suspect medicine, and reaction and seriousness
-- [ ] Add conditional rules: seriousness criteria required when serious, hospital dates required when hospitalised, recovery date required when recovered or recovering
-- [ ] Build the multi-step form container with React Hook Form, one schema per step, and the Stepper
-- [ ] Build step 1: reporter details
-- [ ] Build step 2: patient details
-- [ ] Build step 3: suspect medicine
-- [ ] Build step 4: reaction and seriousness, with the conditional sections showing and hiding
-- [ ] Block Continue until the current step validates, and show errors next to fields with an error summary at the top
-- [ ] Move focus to the step heading on each step change
-- [ ] Build step 5: review and confirm, listing all answers with an edit link back to each step
-- [ ] Submit the report through the create endpoint and show a confirmation with the report reference
-- [ ] Autosave the draft to localStorage on every change, keyed by user
-- [ ] On the reporter home, offer to continue the most recent draft or start fresh
-- [ ] Build the my reports page listing the reporter's own submissions and statuses
-- [ ] Write tests for each schema's conditional rules, the stepper navigation, focus movement and autosave restore
+- [x] Write Zod schemas for reporter details, patient details, suspect medicine, and reaction and seriousness
+- [x] Add conditional rules: seriousness criteria required when serious, hospital dates required when hospitalised, recovery date required when recovered or recovering
+- [x] Build the multi-step form container with React Hook Form, one schema per step, and the Stepper
+- [x] Build step 1: reporter details
+- [x] Build step 2: patient details
+- [x] Build step 3: suspect medicine
+- [x] Build step 4: reaction and seriousness, with the conditional sections showing and hiding
+- [x] Block Continue until the current step validates, and show errors next to fields with an error summary at the top
+- [x] Move focus to the step heading on each step change
+- [x] Build step 5: review and confirm, listing all answers with an edit link back to each step
+- [x] Submit the report through the create endpoint and show a confirmation with the report reference
+- [x] Autosave the draft to localStorage on every change, keyed by user
+- [x] On the reporter home, offer to continue the most recent draft or start fresh
+- [x] Build the my reports page listing the reporter's own submissions and statuses
+- [x] Write tests for each schema's conditional rules, the stepper navigation, focus movement and autosave restore
 
 ## Phase 6: Reviewer screens
 

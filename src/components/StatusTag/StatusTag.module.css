@@ -1,0 +1,25 @@
+.tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+}
+
+.submitted {
+  background: var(--colour-primary);
+  color: var(--colour-text-inverse);
+}
+
+.under-review {
+  background: var(--colour-focus);
+  color: var(--colour-text);
+}
+
+.closed {
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  border: 1px solid var(--colour-border);
+}
