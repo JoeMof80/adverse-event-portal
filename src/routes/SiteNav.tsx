@@ -7,9 +7,7 @@ import styles from './SiteNav.module.css'
 type NavItem = { to: string; label: string; roles: readonly Role[] }
 
 const NAV_ITEMS: readonly NavItem[] = [
-  { to: '/reporter', label: 'Home', roles: ['reporter'] },
-  { to: '/reporter/new', label: 'New report', roles: ['reporter'] },
-  { to: '/reporter/reports', label: 'My reports', roles: ['reporter'] },
+  { to: '/reporter', label: 'Your reports', roles: ['reporter'] },
   { to: '/review', label: 'Review queue', roles: ['reviewer', 'admin'] },
 ]
 

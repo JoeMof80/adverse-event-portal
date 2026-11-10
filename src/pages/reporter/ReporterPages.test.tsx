@@ -1,6 +1,8 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { saveDraft, loadDraft } from '@/features/report-form/draft'
+import { server } from '@/mocks/server'
 import { store } from '@/mocks/store'
 import { axe } from '@/test/axe'
 import { renderApp } from '@/test/renderApp'
@@ -17,6 +19,7 @@ describe('reporter home', () => {
       '/reporter/new',
     )
     expect(screen.queryByText('You have a report in progress')).not.toBeInTheDocument()
+    expect(document.title).toBe('Your reports - Adverse Event Reporting Portal')
   })
 
   it('offers to continue or discard a draft in progress', async () => {
@@ -43,9 +46,9 @@ describe('reporter home', () => {
   })
 })
 
-describe('my reports', () => {
+describe('submitted reports on the home page', () => {
   it("lists only the signed-in reporter's reports with their status", async () => {
-    const { container } = renderApp('/reporter/reports', { as: 'reporter' })
+    const { container } = renderApp('/reporter', { as: 'reporter' })
     const rows = await screen.findAllByRole('row')
     expect(rows).toHaveLength(4)
     expect(screen.getByRole('rowheader', { name: 'AER-0003' })).toBeInTheDocument()
@@ -53,5 +56,12 @@ describe('my reports', () => {
     expect(screen.getByText('Under review')).toBeInTheDocument()
     expect(screen.getByText('Closed')).toBeInTheDocument()
     expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('says so when there are none', async () => {
+    server.use(http.get('/api/reports', () => HttpResponse.json([])))
+    renderApp('/reporter', { as: 'reporter' })
+    expect(await screen.findByText('You have not submitted any reports yet.')).toBeInTheDocument()
+    expect(screen.queryByRole('table')).not.toBeInTheDocument()
   })
 })
