@@ -85,12 +85,12 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 7: Accessibility and quality pass
 
-- [ ] Run axe on every page in component tests and fix findings
-- [ ] Complete a keyboard-only walkthrough of sign-in, the full form and the review flow
-- [ ] Check colour contrast of all token combinations in use
-- [ ] Check every form control has a visible label and every error is announced
-- [ ] Check the page title updates on route change
-- [ ] Review test coverage of the form logic and role gating and fill gaps
+- [x] Run axe on every page in component tests and fix findings
+- [x] Complete a keyboard-only walkthrough of sign-in, the full form and the review flow
+- [x] Check colour contrast of all token combinations in use
+- [x] Check every form control has a visible label and every error is announced
+- [x] Check the page title updates on route change
+- [x] Review test coverage of the form logic and role gating and fill gaps
 
 ## Phase 8: Documentation and handover
 

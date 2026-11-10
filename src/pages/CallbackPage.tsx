@@ -3,9 +3,11 @@ import { useNavigate, useSearchParams } from 'react-router'
 import { useAuth } from '@/auth/AuthContext'
 import { completeSignIn } from '@/auth/oidc'
 import { PageLayout } from '@/components'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 /** The redirect URI the identity provider returns to. Exchanges the code and starts the session. */
 export function CallbackPage() {
+  usePageTitle('Signing you in')
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const { signIn } = useAuth()

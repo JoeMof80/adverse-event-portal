@@ -3,8 +3,10 @@ import { useReports } from '@/api/reports'
 import { Alert, StatusTag } from '@/components'
 import { formatDate } from '@/lib/formatDate'
 import styles from './MyReportsPage.module.css'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 export function MyReportsPage() {
+  usePageTitle('My reports')
   const reports = useReports()
 
   return (

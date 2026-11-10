@@ -6,8 +6,10 @@ import { clearDraft, loadDraft } from '@/features/report-form/draft'
 import { REPORT_STEPS } from '@/features/report-form/steps'
 import { formatDateTime } from '@/lib/formatDate'
 import styles from './ReporterHomePage.module.css'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 export function ReporterHomePage() {
+  usePageTitle('Report a suspected adverse event')
   const { user } = useAuth()
   const navigate = useNavigate()
   const userId = user?.id ?? 'anonymous'

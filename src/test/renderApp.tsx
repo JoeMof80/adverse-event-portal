@@ -1,5 +1,6 @@
 import { QueryClientProvider } from '@tanstack/react-query'
 import { render } from '@testing-library/react'
+import { StrictMode } from 'react'
 import { createQueryClient } from '@/api/queryClient'
 import { createMemoryRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
@@ -31,12 +32,15 @@ export function renderApp(initialPath: string, options: { as?: Role } = {}) {
   // The API reads the token from sessionStorage, so a signed-in test must persist it too.
   if (session) saveSession(session)
   const queryClient = createQueryClient({ retry: false })
+  // Strict Mode, as in development, so double-run effects and renders are exercised by tests.
   const result = render(
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider initialSession={session}>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </QueryClientProvider>,
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider initialSession={session}>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </QueryClientProvider>
+    </StrictMode>,
   )
   return { ...result, router, queryClient }
 }

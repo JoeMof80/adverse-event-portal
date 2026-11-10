@@ -21,6 +21,7 @@ import { PatientStep } from './steps/PatientStep'
 import { ReactionStep } from './steps/ReactionStep'
 import { ReporterStep } from './steps/ReporterStep'
 import { ReviewStep } from './steps/ReviewStep'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 export function ReportForm() {
   const { user } = useAuth()
@@ -31,6 +32,7 @@ export function ReportForm() {
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState<Report | null>(null)
   const createReport = useCreateReport()
+  usePageTitle(submitted ? 'Report submitted' : `${REPORT_STEPS[stepIndex]} - New report`)
 
   const headingRef = useRef<HTMLHeadingElement>(null)
   const confirmationRef = useRef<HTMLHeadingElement>(null)
@@ -50,14 +52,11 @@ export function ReportForm() {
     if (submitted) confirmationRef.current?.focus()
   }, [submitted])
 
-  // Every change to the draft is written to storage. The first render is the draft as loaded,
-  // so it is not announced as a save.
-  const skipFirstSave = useRef(true)
+  // Every change to the draft is written to storage. The draft as loaded is never written
+  // back unchanged, which also keeps Strict Mode's double-run of effects from saving on open.
+  const loadedDraft = useRef(draft)
   useEffect(() => {
-    if (skipFirstSave.current) {
-      skipFirstSave.current = false
-      return
-    }
+    if (draft === loadedDraft.current) return
     saveDraft(userId, draft)
     setSavedAt(draft.updatedAt)
   }, [draft, userId])
@@ -104,8 +103,9 @@ export function ReportForm() {
 
   function startAnother() {
     clearDraft(userId)
-    skipFirstSave.current = true
-    setDraft(emptyDraft())
+    const fresh = emptyDraft()
+    loadedDraft.current = fresh
+    setDraft(fresh)
     setSubmitted(null)
     setSavedAt(null)
     createReport.reset()
