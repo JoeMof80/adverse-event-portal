@@ -1,11 +1,75 @@
-import { useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
+import { useReport } from '@/api/reports'
+import { Alert, StatusTag, SummaryList } from '@/components'
+import { AuditHistory } from '@/features/review/AuditHistory'
+import { reportSections } from '@/features/review/reportRows'
+import { ReviewActions } from '@/features/review/ReviewActions'
+import { ReviewNotes } from '@/features/review/ReviewNotes'
+import { formatDateTime } from '@/lib/formatDate'
+import styles from './ReportDetailPage.module.css'
 
 export function ReportDetailPage() {
-  const { reportId } = useParams()
+  const { reportId = '' } = useParams()
+  const report = useReport(reportId)
+
+  if (report.isPending) {
+    return (
+      <>
+        <h1>Report {reportId}</h1>
+        <p role="status">Loading report.</p>
+      </>
+    )
+  }
+
+  if (report.isError) {
+    return (
+      <>
+        <h1>Report {reportId}</h1>
+        <Alert variant="error" title="The report could not be loaded">
+          <p>{report.error.message}</p>
+          <p>
+            <Link to="/review">Back to the review queue</Link>
+          </p>
+        </Alert>
+      </>
+    )
+  }
+
+  const data = report.data
+
   return (
     <>
-      <h1>Report {reportId}</h1>
-      <p>Report detail, status actions and audit history are built in Phase 6.</p>
+      <p>
+        <Link to="/review">Back to the review queue</Link>
+      </p>
+      <div className={styles.header}>
+        <h1>Report {data.id}</h1>
+        <StatusTag status={data.status} />
+      </div>
+      <SummaryList
+        rows={[
+          { label: 'Submitted', value: formatDateTime(data.submittedAt) },
+          { label: 'Reporter', value: data.reporterName },
+          { label: 'Assigned to', value: data.assignedReviewerName ?? 'Unassigned' },
+          { label: 'Last updated', value: formatDateTime(data.updatedAt) },
+        ]}
+      />
+
+      <div className={styles.layout}>
+        <div className={styles.main}>
+          {reportSections(data).map((section) => (
+            <section key={section.title} className={styles.section}>
+              <h2>{section.title}</h2>
+              <SummaryList rows={section.rows} />
+            </section>
+          ))}
+          <ReviewNotes report={data} />
+        </div>
+        <aside className={styles.side}>
+          <ReviewActions report={data} />
+          <AuditHistory reportId={data.id} />
+        </aside>
+      </div>
     </>
   )
 }

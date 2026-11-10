@@ -1,0 +1,25 @@
+.panel {
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--colour-border);
+  border-radius: var(--radius-md);
+  background: var(--colour-surface);
+}
+
+.panel > * + * {
+  margin-top: var(--space-4);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.reassign {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--colour-border);
+}
+
+.reassign > * + * {
+  margin-top: var(--space-3);
+}

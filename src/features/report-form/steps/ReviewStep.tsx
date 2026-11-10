@@ -1,4 +1,4 @@
-import { Alert, Button } from '@/components'
+import { Alert, Button, SummaryList, type SummaryRow } from '@/components'
 import {
   OUTCOME_LABELS,
   REPORTER_TYPE_LABELS,
@@ -20,8 +20,6 @@ type ReviewStepProps = {
   submitError: string | null
 }
 
-type Row = { label: string; value: string | undefined }
-
 function Section({
   title,
   stepIndex,
@@ -30,7 +28,7 @@ function Section({
 }: {
   title: string
   stepIndex: number
-  rows: Row[]
+  rows: SummaryRow[]
   onEdit: (i: number) => void
 }) {
   return (
@@ -45,14 +43,7 @@ function Section({
           Change
         </Button>
       </div>
-      <dl className={styles.list}>
-        {rows.map((row) => (
-          <div key={row.label} className={styles.row}>
-            <dt>{row.label}</dt>
-            <dd>{row.value || <span className={styles.empty}>Not provided</span>}</dd>
-          </div>
-        ))}
-      </dl>
+      <SummaryList rows={rows} />
     </section>
   )
 }

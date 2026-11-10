@@ -1,0 +1,39 @@
+.audit > * + * {
+  margin-top: var(--space-4);
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  border-left: var(--border-width) solid var(--colour-border);
+  padding-left: var(--space-4);
+}
+
+.event {
+  position: relative;
+}
+
+.event::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-4) - 0.45rem);
+  top: 0.45rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--colour-primary);
+}
+
+.action {
+  font-weight: var(--font-weight-bold);
+}
+
+.detail {
+  white-space: pre-line;
+}
+
+.meta {
+  font-size: var(--font-size-sm);
+  color: var(--colour-text-muted);
+}
