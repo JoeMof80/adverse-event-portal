@@ -66,11 +66,11 @@ describe('patient schema', () => {
   })
 
   it('upper-cases initials and rejects anything but 1 to 4 letters', () => {
-    expect(patientSchema.safeParse({ initials: 'ab', age: '1', sex: 'other' }).data?.initials).toBe(
-      'AB',
-    )
     expect(
-      messages(patientSchema.safeParse({ initials: 'A.B.', age: '1', sex: 'other' })),
+      patientSchema.safeParse({ initials: 'ab', age: '1', sex: 'unknown' }).data?.initials,
+    ).toBe('AB')
+    expect(
+      messages(patientSchema.safeParse({ initials: 'A.B.', age: '1', sex: 'unknown' })),
     ).toMatchObject({
       initials: "Enter the patient's initials, up to 4 letters",
     })

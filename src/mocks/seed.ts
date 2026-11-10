@@ -233,7 +233,7 @@ export const seedReports: Report[] = [
       name: priya.name,
       email: 'priya.shah@example-pharmacy.co.uk',
     },
-    patient: { initials: 'LW', age: 45, sex: 'other' },
+    patient: { initials: 'LW', age: 45, sex: 'unknown' },
     medicine: {
       name: 'Sertraline 50mg tablets',
       dose: '50mg once a day',

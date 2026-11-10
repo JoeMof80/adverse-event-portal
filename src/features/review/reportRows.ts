@@ -33,7 +33,8 @@ export function reportSections(report: Report): { title: string; rows: SummaryRo
         { label: 'Initials', value: patient.initials },
         { label: 'Age', value: patient.age !== undefined ? String(patient.age) : undefined },
         { label: 'Date of birth', value: date(patient.dateOfBirth) },
-        { label: 'Sex', value: SEX_LABELS[patient.sex] },
+        // Data seeded before 'other' was removed may still hold it; show the raw value rather than nothing.
+        { label: 'Sex', value: SEX_LABELS[patient.sex] ?? patient.sex },
       ],
     },
     {
