@@ -94,8 +94,8 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 8: Documentation and handover
 
-- [ ] Write the README: what it is, how to run it, how to sign in as each role, and the seed data
-- [ ] Document how the mocked SSO maps to a real PingFederate integration
-- [ ] Document the design tokens and how to add a primitive
-- [ ] Document how Claude Code was used during the build and how generated code was reviewed
-- [ ] Final review of the pull request history for clear descriptions
+- [x] Write the README: what it is, how to run it, how to sign in as each role, and the seed data
+- [x] Document how the mocked SSO maps to a real PingFederate integration
+- [x] Document the design tokens and how to add a primitive
+- [x] Document how Claude Code was used during the build and how generated code was reviewed
+- [x] Final review of the pull request history for clear descriptions
