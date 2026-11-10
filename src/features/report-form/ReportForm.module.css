@@ -1,0 +1,41 @@
+.form {
+  max-width: 44rem;
+}
+
+.heading {
+  margin-bottom: var(--space-2);
+}
+
+.heading:focus {
+  outline: none;
+}
+
+.saved {
+  color: var(--colour-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-5);
+}
+
+.confirmation {
+  max-width: 44rem;
+}
+
+.confirmation > * + * {
+  margin-top: var(--space-5);
+}
+
+.confirmationPanel {
+  padding: var(--space-6);
+  background: var(--colour-success);
+  color: var(--colour-text-inverse);
+  text-align: center;
+}
+
+.confirmationPanel h1:focus {
+  outline: none;
+}
+
+.reference {
+  font-size: var(--font-size-lg);
+  margin-top: var(--space-3);
+}

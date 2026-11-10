@@ -1,0 +1,5 @@
+.conditional {
+  margin-left: var(--space-3);
+  padding-left: var(--space-4);
+  border-left: var(--border-width-thick) solid var(--colour-border);
+}

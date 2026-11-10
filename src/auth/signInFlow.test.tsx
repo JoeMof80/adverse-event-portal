@@ -33,9 +33,7 @@ describe('sign-in flow', () => {
     await user.click(await screen.findByRole('button', { name: 'Sign in with single sign-on' }))
     await user.click(await screen.findByRole('button', { name: /Alex Morgan/ }))
 
-    expect(
-      await screen.findByRole('heading', { name: 'New adverse event report' }),
-    ).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Reporter details' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/reporter/new')
   })
 

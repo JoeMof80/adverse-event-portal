@@ -4,6 +4,7 @@ import { createQueryClient } from '@/api/queryClient'
 import { createMemoryRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import { AuthProvider } from '@/auth/AuthProvider'
+import { saveSession } from '@/auth/session'
 import type { Role, Session, User } from '@/auth/types'
 import { routes } from '@/routes/routes'
 import { tokenFor } from './api'
@@ -27,6 +28,8 @@ export function makeSession(role: Role): Session {
 export function renderApp(initialPath: string, options: { as?: Role } = {}) {
   const router = createMemoryRouter(routes, { initialEntries: [initialPath] })
   const session = options.as ? makeSession(options.as) : null
+  // The API reads the token from sessionStorage, so a signed-in test must persist it too.
+  if (session) saveSession(session)
   const queryClient = createQueryClient({ retry: false })
   const result = render(
     <QueryClientProvider client={queryClient}>

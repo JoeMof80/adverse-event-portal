@@ -1,0 +1,9 @@
+.list {
+  list-style: disc;
+  padding-left: var(--space-5);
+}
+
+.link {
+  color: var(--colour-error);
+  font-weight: var(--font-weight-bold);
+}
