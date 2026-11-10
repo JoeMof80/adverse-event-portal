@@ -13,9 +13,7 @@ describe('route guards', () => {
 
   it('sends a reporter who opens the review queue to their own home', async () => {
     const { router } = renderApp('/review', { as: 'reporter' })
-    expect(
-      await screen.findByRole('heading', { name: 'Report a suspected adverse event' }),
-    ).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Your reports' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/reporter')
   })
 
@@ -40,8 +38,7 @@ describe('site navigation', () => {
   it('shows a reporter only reporter links', async () => {
     renderApp('/reporter', { as: 'reporter' })
     const nav = await screen.findByRole('navigation', { name: 'Main' })
-    expect(nav).toHaveTextContent('New report')
-    expect(nav).toHaveTextContent('My reports')
+    expect(nav).toHaveTextContent('Your reports')
     expect(nav).not.toHaveTextContent('Review queue')
     expect(nav).toHaveTextContent('Signed in as Dr Alex Morgan (Reporter)')
   })
@@ -50,17 +47,22 @@ describe('site navigation', () => {
     renderApp('/review', { as: 'reviewer' })
     const nav = await screen.findByRole('navigation', { name: 'Main' })
     expect(nav).toHaveTextContent('Review queue')
-    expect(nav).not.toHaveTextContent('New report')
+    expect(nav).not.toHaveTextContent('Your reports')
     expect(nav).toHaveTextContent('(Safety reviewer)')
   })
 
   it('marks the current page link', async () => {
-    renderApp('/reporter/new', { as: 'reporter' })
-    expect(await screen.findByRole('link', { name: 'New report' })).toHaveAttribute(
+    const home = renderApp('/reporter', { as: 'reporter' })
+    expect(await screen.findByRole('link', { name: 'Your reports' })).toHaveAttribute(
       'aria-current',
       'page',
     )
-    expect(screen.getByRole('link', { name: 'My reports' })).not.toHaveAttribute('aria-current')
+    home.unmount()
+
+    renderApp('/reporter/new', { as: 'reporter' })
+    expect(await screen.findByRole('link', { name: 'Your reports' })).not.toHaveAttribute(
+      'aria-current',
+    )
   })
 
   it('signs out, clears the session and returns to sign-in', async () => {
