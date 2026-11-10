@@ -33,12 +33,12 @@ export const REPORTER_TYPE_LABELS: Record<ReporterType, string> = {
   'healthcare-professional': 'Healthcare professional',
 }
 
-export const SEXES = ['female', 'male', 'other', 'unknown'] as const
+/** Biological sex, as pharmacovigilance forms and ICH E2B(R3) record it. Unknown when not reported. */
+export const SEXES = ['female', 'male', 'unknown'] as const
 export type Sex = (typeof SEXES)[number]
 export const SEX_LABELS: Record<Sex, string> = {
   female: 'Female',
   male: 'Male',
-  other: 'Other',
   unknown: 'Not known',
 }
 
