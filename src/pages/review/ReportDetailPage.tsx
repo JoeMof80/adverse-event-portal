@@ -58,6 +58,11 @@ export function ReportDetailPage() {
       />
 
       <div className={styles.layout}>
+        {/* Actions come first in reading and tab order; the grid places them alongside. */}
+        <aside className={styles.side}>
+          <ReviewActions report={data} />
+          <AuditHistory reportId={data.id} />
+        </aside>
         <div className={styles.main}>
           {reportSections(data).map((section) => (
             <section key={section.title} className={styles.section}>
@@ -67,10 +72,6 @@ export function ReportDetailPage() {
           ))}
           <ReviewNotes report={data} />
         </div>
-        <aside className={styles.side}>
-          <ReviewActions report={data} />
-          <AuditHistory reportId={data.id} />
-        </aside>
       </div>
     </>
   )
