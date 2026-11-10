@@ -62,7 +62,7 @@ ESLint with typescript-eslint, Prettier, and a pre-commit hook via Husky and lin
 
 ## Deployment
 
-None for now. The app runs locally.
+Vercel, from the GitHub repository. Every pull request gets a preview deployment and main deploys to production. The app is a static Vite build with the mock API running in the page, so no server, database or environment variables are needed. `vercel.json` rewrites every path to `index.html` so client-side routes work on a direct visit.
 
 ## Code review
 
