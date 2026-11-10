@@ -19,15 +19,15 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 2: Design tokens and primitives
 
-- [ ] Define design tokens as CSS custom properties: colour, spacing, type scale, radius, shadow, focus ring
-- [ ] Add a global stylesheet with reset, base typography and a visible focus style
-- [ ] Build Button with primary, secondary and danger variants
-- [ ] Build Field wrapper handling label, hint, error message and aria wiring
-- [ ] Build TextInput, Select, RadioGroup and CheckboxGroup using Field
-- [ ] Build Alert with info, success and error variants and appropriate live region
-- [ ] Build Stepper showing step names, current step and completed steps
-- [ ] Build a page layout shell with header, main landmark and skip link
-- [ ] Write component tests for Field error wiring, RadioGroup keyboard behaviour and Stepper current step, each with an axe check
+- [x] Define design tokens as CSS custom properties: colour, spacing, type scale, radius, shadow, focus ring
+- [x] Add a global stylesheet with reset, base typography and a visible focus style
+- [x] Build Button with primary, secondary and danger variants
+- [x] Build Field wrapper handling label, hint, error message and aria wiring
+- [x] Build TextInput, Select, RadioGroup and CheckboxGroup using Field
+- [x] Build Alert with info, success and error variants and appropriate live region
+- [x] Build Stepper showing step names, current step and completed steps
+- [x] Build a page layout shell with header, main landmark and skip link
+- [x] Write component tests for Field error wiring, RadioGroup keyboard behaviour and Stepper current step, each with an axe check
 
 ## Phase 3: Authentication stub and role-aware shell
 

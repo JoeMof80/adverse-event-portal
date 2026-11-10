@@ -1,0 +1,33 @@
+.alert {
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+  border: var(--border-width-thick) solid;
+  border-radius: var(--radius-md);
+  background: var(--colour-surface-raised);
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.body > * + * {
+  margin-top: var(--space-2);
+}
+
+.info {
+  border-color: var(--colour-info);
+}
+
+.success {
+  border-color: var(--colour-success);
+}
+
+.error {
+  border-color: var(--colour-error);
+}
+
+.error .title {
+  color: var(--colour-error);
+}
