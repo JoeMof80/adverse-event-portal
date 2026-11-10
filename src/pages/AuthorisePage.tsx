@@ -4,12 +4,14 @@ import { apiFetch } from '@/api/client'
 import { ROLE_LABELS, type User } from '@/auth/types'
 import { Alert, Button, PageLayout } from '@/components'
 import styles from './AuthorisePage.module.css'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 /**
  * Stands in for the identity provider's sign-in page. In production this page belongs to
  * PingFederate; the app never renders it. Here it lets the demo pick an account.
  */
 export function AuthorisePage() {
+  usePageTitle('Choose an account')
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const [accounts, setAccounts] = useState<readonly User[]>([])

@@ -3,10 +3,12 @@ import { beginSignIn } from '@/auth/oidc'
 import { useAuth } from '@/auth/AuthContext'
 import { homePathFor } from '@/auth/types'
 import { Alert, Button, PageLayout } from '@/components'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 type SignInLocationState = { returnTo?: string; error?: string } | null
 
 export function SignInPage() {
+  usePageTitle('Sign in')
   const { user } = useAuth()
   const location = useLocation()
   const navigate = useNavigate()

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useChangeReportStatus, useReassignReport, useReviewers } from '@/api/reports'
 import { useAuth } from '@/auth/AuthContext'
 import { Alert, Button, Field, Select } from '@/components'
@@ -30,6 +30,17 @@ export function ReviewActions({ report }: ReviewActionsProps) {
   const reviewers = useReviewers()
   const [reviewerId, setReviewerId] = useState('')
 
+  // The button that was activated disappears once the status changes, so focus would be lost.
+  // Move it to the confirmation instead, which also announces the result.
+  const statusMessageRef = useRef<HTMLDivElement>(null)
+  const reassignMessageRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (changeStatus.isSuccess) statusMessageRef.current?.focus()
+  }, [changeStatus.isSuccess, changeStatus.data])
+  useEffect(() => {
+    if (reassign.isSuccess) reassignMessageRef.current?.focus()
+  }, [reassign.isSuccess, reassign.data])
+
   if (!canReview) return null
 
   const transitions = STATUS_TRANSITIONS[report.status]
@@ -39,7 +50,7 @@ export function ReviewActions({ report }: ReviewActionsProps) {
       <h2 id="actions-heading">Actions</h2>
 
       {changeStatus.isSuccess && (
-        <Alert variant="success">
+        <Alert ref={statusMessageRef} variant="success">
           <p>Status changed to {REPORT_STATUS_LABELS[changeStatus.data.status]}.</p>
         </Alert>
       )}
@@ -76,7 +87,7 @@ export function ReviewActions({ report }: ReviewActionsProps) {
         >
           <h3>Reassign</h3>
           {reassign.isSuccess && (
-            <Alert variant="success">
+            <Alert ref={reassignMessageRef} variant="success">
               <p>Reassigned to {reassign.data.assignedReviewerName}.</p>
             </Alert>
           )}

@@ -9,6 +9,7 @@ import {
 } from '@/domain/report'
 import { formatDate } from '@/lib/formatDate'
 import styles from './ReviewQueuePage.module.css'
+import { usePageTitle } from '@/lib/usePageTitle'
 
 const DEFAULT_STATUSES: readonly ReportStatus[] = ['submitted', 'under-review']
 
@@ -19,6 +20,7 @@ const statusOptions = REPORT_STATUSES.map((value) => ({
 
 /** The reviewer's queue. Filter and sort live in the URL so a view can be shared or refreshed. */
 export function ReviewQueuePage() {
+  usePageTitle('Review queue')
   const [searchParams, setSearchParams] = useSearchParams()
   const statusParams = searchParams.getAll('status').filter(isReportStatus)
   const statuses = searchParams.has('status') ? statusParams : DEFAULT_STATUSES

@@ -1,5 +1,5 @@
 .form {
-  max-width: 44rem;
+  max-width: 100%;
 }
 
 .heading {
@@ -17,7 +17,7 @@
 }
 
 .confirmation {
-  max-width: 44rem;
+  max-width: 100%;
 }
 
 .confirmation > * + * {

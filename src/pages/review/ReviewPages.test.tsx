@@ -137,7 +137,8 @@ describe('status actions', () => {
     renderApp('/review/AER-0003', { as: 'reviewer' })
     await user.click(await screen.findByRole('button', { name: 'Start review' }))
 
-    expect(await screen.findByText('Status changed to Under review.')).toBeInTheDocument()
+    const confirmation = await screen.findByText('Status changed to Under review.')
+    expect(confirmation.closest('[role="status"]')).toHaveFocus()
     await waitFor(() => expect(summaryValue('Assigned to')).toBe('Jordan Lee'))
     const history = screen.getByRole('region', { name: 'History' })
     await waitFor(() =>
@@ -188,7 +189,8 @@ describe('reassignment', () => {
     await user.selectOptions(select, 'u-reviewer-1')
     await user.click(screen.getByRole('button', { name: 'Reassign report' }))
 
-    expect(await screen.findByText('Reassigned to Jordan Lee.')).toBeInTheDocument()
+    const confirmation = await screen.findByText('Reassigned to Jordan Lee.')
+    expect(confirmation.closest('[role="status"]')).toHaveFocus()
     const history = screen.getByRole('region', { name: 'History' })
     await waitFor(() =>
       expect(within(history).getAllByRole('listitem')[0]).toHaveTextContent(
