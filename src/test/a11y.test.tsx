@@ -66,13 +66,16 @@ describe('accessibility and titles across pages', () => {
   it('reporter home, with and without a draft', async () => {
     const first = renderApp('/reporter', { as: 'reporter' })
     await screen.findByRole('link', { name: 'Start a new report' })
-    expect(document.title).toBe('Report a suspected adverse event - Adverse Event Reporting Portal')
+    await screen.findByRole('table')
+    expect(document.title).toBe('Your reports - Adverse Event Reporting Portal')
     expect(await axe(first.container)).toHaveNoViolations()
     first.unmount()
 
     saveDraft(ALEX, { stepIndex: 1, updatedAt: '2026-11-10T09:30:00.000Z' })
+    server.use(http.get('/api/reports', () => HttpResponse.json([])))
     const second = renderApp('/reporter', { as: 'reporter' })
     await screen.findByText('You have a report in progress')
+    await screen.findByText('You have not submitted any reports yet.')
     expect(await axe(second.container)).toHaveNoViolations()
   })
 
@@ -105,19 +108,6 @@ describe('accessibility and titles across pages', () => {
     await screen.findByRole('heading', { level: 1, name: 'Report submitted' })
     expect(document.title).toBe('Report submitted - Adverse Event Reporting Portal')
     expect(await axe(container)).toHaveNoViolations()
-  })
-
-  it('my reports, with reports and empty', async () => {
-    const first = renderApp('/reporter/reports', { as: 'reporter' })
-    await screen.findByRole('table')
-    expect(document.title).toBe('My reports - Adverse Event Reporting Portal')
-    expect(await axe(first.container)).toHaveNoViolations()
-    first.unmount()
-
-    server.use(http.get('/api/reports', () => HttpResponse.json([])))
-    const second = renderApp('/reporter/reports', { as: 'reporter' })
-    await screen.findByText(/You have not submitted any reports yet/)
-    expect(await axe(second.container)).toHaveNoViolations()
   })
 
   it('review queue, including the empty and error states', async () => {

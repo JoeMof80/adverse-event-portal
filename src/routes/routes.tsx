@@ -4,7 +4,6 @@ import { CallbackPage } from '@/pages/CallbackPage'
 import { HomeRedirect } from '@/pages/HomeRedirect'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { SignInPage } from '@/pages/SignInPage'
-import { MyReportsPage } from '@/pages/reporter/MyReportsPage'
 import { NewReportPage } from '@/pages/reporter/NewReportPage'
 import { ReporterHomePage } from '@/pages/reporter/ReporterHomePage'
 import { ReportDetailPage } from '@/pages/review/ReportDetailPage'
@@ -29,7 +28,6 @@ export const routes: RouteObject[] = [
             children: [
               { path: '/reporter', Component: ReporterHomePage },
               { path: '/reporter/new', Component: NewReportPage },
-              { path: '/reporter/reports', Component: MyReportsPage },
             ],
           },
           {

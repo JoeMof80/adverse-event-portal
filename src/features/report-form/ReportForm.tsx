@@ -124,7 +124,7 @@ export function ReportForm() {
         </div>
         <p>
           The safety team will review your report. You can follow its progress from{' '}
-          <Link to="/reporter/reports">My reports</Link>.
+          <Link to="/reporter">your reports</Link>.
         </p>
         <p>
           <Button variant="secondary" onClick={startAnother}>
