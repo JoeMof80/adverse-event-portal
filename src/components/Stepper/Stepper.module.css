@@ -26,10 +26,11 @@
   color: var(--colour-text-muted);
 }
 
-/* Connecting line between markers. */
+/* Connecting line between markers, drawn beneath the markers. */
 .step + .step::before {
   content: '';
   position: absolute;
+  z-index: 0;
   top: 1rem;
   right: 50%;
   width: 100%;
@@ -39,6 +40,7 @@
 
 .marker {
   position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
