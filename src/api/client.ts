@@ -1,3 +1,5 @@
+import { loadSession } from '@/auth/session'
+
 export class ApiError extends Error {
   readonly status: number
 
@@ -15,10 +17,12 @@ type ApiRequestInit = Omit<RequestInit, 'body'> & {
 /** Fetches JSON from the REST API. Throws ApiError on a non-2xx response. */
 export async function apiFetch<T>(path: string, init: ApiRequestInit = {}): Promise<T> {
   const { body, headers, ...rest } = init
+  const token = loadSession()?.idToken
   const response = await fetch(new URL(path, window.location.origin), {
     ...rest,
     headers: {
       Accept: 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
       ...headers,
     },
