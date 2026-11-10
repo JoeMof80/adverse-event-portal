@@ -9,11 +9,11 @@ Browser
   React pages and components
     TanStack Query hooks (src/api)
       apiFetch: JSON over fetch, bearer token attached
-        Mock Service Worker (src/mocks/handlers)
+        Mock Service Worker handlers (src/mocks/handlers), intercepting in the page
           localStorage store (src/mocks/store), seeded on first run
 ```
 
-The service worker intercepts `fetch` calls to `/api/...`. The handlers authenticate the bearer token, check the caller's role, read and write the store, and append an audit event for every mutation. The pages never know the API is mocked; swapping to a real backend is a base URL and a worker toggle.
+Mock Service Worker intercepts `fetch` calls to `/api/...` inside the page, using its in-page interceptors rather than a registered service worker (see `src/mocks/browser.ts` for why). The handlers authenticate the bearer token, check the caller's role, read and write the store, and append an audit event for every mutation. The pages never know the API is mocked; swapping to a real backend is a base URL and removing the interception.
 
 ## Sign-in
 
@@ -51,7 +51,7 @@ Tokens in `src/styles/tokens.css` are the only place a colour, size or spacing v
 
 ## Tests
 
-- **Unit**: schemas, the submission mapping, draft storage, ID token handling, the timed worker start.
+- **Unit**: schemas, the submission mapping, draft storage, ID token handling, stale worker clean-up.
 - **Component**: every primitive, with an axe check.
 - **API**: the handlers called over fetch with real ID tokens for each role.
 - **Flow**: the real route tree in a memory router, driven with user-event: sign-in through the identity provider, the whole form to submission, the review actions.

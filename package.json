@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
+    "@mswjs/interceptors": "^0.45.11",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -62,11 +63,6 @@
     ],
     "*.{json,css,md,yml,yaml}": [
       "prettier --write"
-    ]
-  },
-  "msw": {
-    "workerDirectory": [
-      "public"
     ]
   }
 }

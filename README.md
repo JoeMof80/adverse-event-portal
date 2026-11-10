@@ -15,7 +15,7 @@ It is a front-end demonstration: the REST API and the single sign-on identity pr
 - An OIDC authorization code sign-in flow shaped like a PingFederate integration, with the identity provider stood in by a page in this app. See [docs/sso.md](docs/sso.md).
 - A small design system of tokens and accessible primitives, influenced by the GOV.UK Design System. See [docs/design-system.md](docs/design-system.md).
 - WCAG 2.1 AA: keyboard operation, focus management between steps, errors linked and announced, contrast checked, axe run on every page in the tests.
-- A typed REST client with TanStack Query over a Mock Service Worker API that persists to localStorage.
+- A typed REST client with TanStack Query over a Mock Service Worker API, intercepted in the page, that persists to localStorage.
 - Tests at every level, CI on every pull request, and a pull-request-per-phase history that records how AI-generated code was reviewed. See [docs/ai-assisted-development.md](docs/ai-assisted-development.md).
 
 ## Getting started
