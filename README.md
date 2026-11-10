@@ -18,6 +18,10 @@ It is a front-end demonstration: the REST API and the single sign-on identity pr
 - A typed REST client with TanStack Query over a Mock Service Worker API, intercepted in the page, that persists to localStorage.
 - Tests at every level, CI on every pull request, and a pull-request-per-phase history that records how AI-generated code was reviewed. See [docs/ai-assisted-development.md](docs/ai-assisted-development.md).
 
+## Live demo
+
+The app is deployed on Vercel from this repository: every pull request gets a preview URL and main is production. Sign in with any of the demo accounts below; the mock API runs in your browser, so each visitor has their own data.
+
 ## Getting started
 
 Requires Node 22.
