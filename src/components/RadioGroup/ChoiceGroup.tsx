@@ -57,6 +57,7 @@ export function ChoiceGroup({
   return (
     <fieldset
       className={cx(styles.group, error && styles.hasError)}
+      data-invalid={error ? 'true' : undefined}
       aria-describedby={describedBy || undefined}
       disabled={disabled}
     >

@@ -3,3 +3,17 @@
   padding-left: var(--space-4);
   border-left: var(--border-width-thick) solid var(--colour-border);
 }
+
+/*
+ * A field in error normally draws its own red left border. Inside a conditional section
+ * that would sit next to the section's grey border, so the section's border turns red
+ * instead and the field's own is dropped.
+ */
+.conditional:has(> [data-invalid='true']) {
+  border-left-color: var(--colour-error);
+}
+
+.conditional > [data-invalid='true'] {
+  border-left: 0;
+  padding-left: 0;
+}

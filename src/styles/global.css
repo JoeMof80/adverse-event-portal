@@ -90,6 +90,11 @@ a:hover {
   color: var(--colour-primary-hover);
 }
 
+/* Vertical rhythm between the top-level blocks of a page */
+main > * + * {
+  margin-top: var(--space-4);
+}
+
 /* Focus: one visible style for everything, never removed */
 :focus-visible {
   outline: var(--focus-ring);
