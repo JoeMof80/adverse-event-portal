@@ -44,15 +44,15 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 4: Data model and mock API
 
-- [ ] Define the Report type covering all form fields, status, assigned reviewer and timestamps
-- [ ] Define the AuditEvent type with actor, action, timestamp and before and after values
-- [ ] Define the ReviewNote type
-- [ ] Write seed data: six reports in mixed statuses with realistic audit history, plus two reviewers
-- [ ] Implement a localStorage-backed store that loads seed data on first run
-- [ ] Add MSW handlers: list reports with status filter and sort, get report, create report, change status, add note, reassign, list audit events
-- [ ] Make the store append an audit event for every mutating handler
-- [ ] Add TanStack Query and typed hooks for each endpoint, invalidating the right queries after mutations
-- [ ] Write tests for the handlers' filtering, sorting and audit side effects
+- [x] Define the Report type covering all form fields, status, assigned reviewer and timestamps
+- [x] Define the AuditEvent type with actor, action, timestamp and before and after values
+- [x] Define the ReviewNote type
+- [x] Write seed data: six reports in mixed statuses with realistic audit history, plus two reviewers
+- [x] Implement a localStorage-backed store that loads seed data on first run
+- [x] Add MSW handlers: list reports with status filter and sort, get report, create report, change status, add note, reassign, list audit events
+- [x] Make the store append an audit event for every mutating handler
+- [x] Add TanStack Query and typed hooks for each endpoint, invalidating the right queries after mutations
+- [x] Write tests for the handlers' filtering, sorting and audit side effects
 
 ## Phase 5: Adverse event form
 

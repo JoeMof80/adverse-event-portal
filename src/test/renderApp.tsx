@@ -1,9 +1,12 @@
+import { QueryClientProvider } from '@tanstack/react-query'
 import { render } from '@testing-library/react'
+import { createQueryClient } from '@/api/queryClient'
 import { createMemoryRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import { AuthProvider } from '@/auth/AuthProvider'
 import type { Role, Session, User } from '@/auth/types'
 import { routes } from '@/routes/routes'
+import { tokenFor } from './api'
 
 const TEST_USERS: Record<Role, User> = {
   reporter: { id: 'u-reporter-1', name: 'Dr Alex Morgan', role: 'reporter' },
@@ -12,9 +15,10 @@ const TEST_USERS: Record<Role, User> = {
 }
 
 export function makeSession(role: Role): Session {
+  const user = TEST_USERS[role]
   return {
-    user: TEST_USERS[role],
-    idToken: 'test-token',
+    user,
+    idToken: tokenFor(user.id),
     expiresAt: Date.now() + 60 * 60 * 1000,
   }
 }
@@ -23,10 +27,13 @@ export function makeSession(role: Role): Session {
 export function renderApp(initialPath: string, options: { as?: Role } = {}) {
   const router = createMemoryRouter(routes, { initialEntries: [initialPath] })
   const session = options.as ? makeSession(options.as) : null
+  const queryClient = createQueryClient({ retry: false })
   const result = render(
-    <AuthProvider initialSession={session}>
-      <RouterProvider router={router} />
-    </AuthProvider>,
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider initialSession={session}>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>,
   )
-  return { ...result, router }
+  return { ...result, router, queryClient }
 }
