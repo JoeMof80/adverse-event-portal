@@ -1,7 +1,9 @@
+import { PageLayout } from '@/components'
+
 export default function App() {
   return (
-    <main>
+    <PageLayout>
       <h1>Adverse Event Reporting Portal</h1>
-    </main>
+    </PageLayout>
   )
 }

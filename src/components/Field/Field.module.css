@@ -1,0 +1,29 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.hasError {
+  padding-left: var(--space-4);
+  border-left: var(--border-width-thick) solid var(--colour-error);
+}
+
+.label {
+  font-weight: var(--font-weight-bold);
+}
+
+.optional {
+  font-weight: var(--font-weight-regular);
+  color: var(--colour-text-muted);
+}
+
+.hint {
+  color: var(--colour-text-muted);
+}
+
+.error {
+  color: var(--colour-error);
+  font-weight: var(--font-weight-bold);
+}

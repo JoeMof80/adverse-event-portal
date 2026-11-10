@@ -1,0 +1,82 @@
+/*
+ * Design tokens. Every colour, size and spacing value used by a component
+ * comes from here. Components never hard-code these values.
+ */
+:root {
+  /* Colour: text and surfaces */
+  --colour-text: #0b0c0c;
+  --colour-text-muted: #505a5f;
+  --colour-text-inverse: #ffffff;
+  --colour-background: #ffffff;
+  --colour-surface: #f3f2f1;
+  --colour-surface-raised: #ffffff;
+  --colour-border: #b1b4b6;
+  --colour-border-strong: #0b0c0c;
+
+  /* Colour: semantic */
+  --colour-primary: #1d70b8;
+  --colour-primary-hover: #003078;
+  --colour-success: #00703c;
+  --colour-success-hover: #005a30;
+  --colour-error: #d4351c;
+  --colour-error-hover: #aa2a16;
+  --colour-info: #1d70b8;
+  --colour-disabled: #b1b4b6;
+  --colour-disabled-text: #505a5f;
+
+  /* Colour: focus. High-contrast yellow ring with a dark inner edge. */
+  --colour-focus: #ffdd00;
+  --colour-focus-edge: #0b0c0c;
+
+  /* Typography */
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.1875rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Borders and radius */
+  --border-width: 2px;
+  --border-width-thick: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgb(11 12 12 / 0.15);
+  --shadow-md: 0 2px 8px rgb(11 12 12 / 0.2);
+
+  /* Focus ring */
+  --focus-ring-width: 3px;
+  --focus-ring: var(--focus-ring-width) solid var(--colour-focus);
+  --focus-shadow: inset 0 0 0 var(--border-width) var(--colour-focus-edge);
+
+  /* Layout */
+  --content-max-width: 60rem;
+  --control-height: 2.5rem;
+  --control-min-width: 2.75rem;
+
+  /* Motion */
+  --transition-fast: 150ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+  }
+}
