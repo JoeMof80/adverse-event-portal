@@ -9,6 +9,7 @@ Read these before starting work. They are the source of truth for scope and deci
 - `project-scope.md`: problem, features and detailed requirements
 - `tech-stack.md`: every technology choice and why
 - `implementation-plan.md`: phases and tasks; tick tasks off as they land
+- `docs/`: architecture, the SSO mapping, the design system and how AI-assisted development was run
 
 ## Commands
 
@@ -20,6 +21,8 @@ npm run typecheck    # tsc -b
 npm test             # Vitest, single run
 npm run test:watch   # Vitest, watch mode
 npm run format       # Prettier, write
+npm run test:coverage  # Vitest with coverage
+npm run check:contrast # contrast ratio of every colour pairing in use
 ```
 
 CI runs lint, typecheck, test and build on every pull request. All four must pass before merge.
@@ -41,6 +44,11 @@ CI runs lint, typecheck, test and build on every pull request. All four must pas
 - Commit messages: imperative mood, under 72 characters on the first line.
 - Each PR description states what was built, how it was tested, and what AI-generated code was changed or rejected during review.
 - Do not merge with failing CI. Do not force-push to main.
+
+## Claude Code helpers
+
+- `/a11y-check` (`.claude/skills/a11y-check`): runs the accessibility sweep, contrast check and keyboard checklist and reports findings. Use before a PR that touches UI.
+- `accessibility-reviewer` (`.claude/agents`): a subagent that reviews changed components and styles for WCAG 2.1 AA issues against the conventions above.
 
 ## Reviewing generated code
 
