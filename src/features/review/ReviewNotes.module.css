@@ -1,0 +1,29 @@
+.notes > * + * {
+  margin-top: var(--space-4);
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.note {
+  padding: var(--space-3) var(--space-4);
+  border-left: var(--border-width-thick) solid var(--colour-primary);
+  background: var(--colour-surface);
+}
+
+.meta {
+  font-size: var(--font-size-sm);
+  color: var(--colour-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.body {
+  white-space: pre-line;
+}
+
+.form > * + * {
+  margin-top: var(--space-3);
+}

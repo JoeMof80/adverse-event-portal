@@ -1,0 +1,44 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  background: var(--colour-surface);
+  border-radius: var(--radius-md);
+}
+
+.filters > * {
+  margin-bottom: 0;
+}
+
+.count {
+  color: var(--colour-text-muted);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-3);
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-2);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.table thead th {
+  border-bottom: var(--border-width) solid var(--colour-border-strong);
+}
+
+.table tbody th {
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--colour-text-muted);
+}

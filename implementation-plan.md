@@ -74,14 +74,14 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 6: Reviewer screens
 
-- [ ] Build the review queue listing reports with status filter and date submitted sort, defaulting to Submitted and Under review, newest first
-- [ ] Build the report detail page showing all answers in read-only form
-- [ ] Add status change actions valid for the current status
-- [ ] Add review notes: list existing and add new
-- [ ] Add reassign to another reviewer, visible to Admin only
-- [ ] Show the audit history for the report in reverse chronological order
-- [ ] Hide the review queue and actions from Reporters at the component level as well as the route level
-- [ ] Write tests for filter and sort behaviour, status action visibility by status and role, and the Admin-only reassign control
+- [x] Build the review queue listing reports with status filter and date submitted sort, defaulting to Submitted and Under review, newest first
+- [x] Build the report detail page showing all answers in read-only form
+- [x] Add status change actions valid for the current status
+- [x] Add review notes: list existing and add new
+- [x] Add reassign to another reviewer, visible to Admin only
+- [x] Show the audit history for the report in reverse chronological order
+- [x] Hide the review queue and actions from Reporters at the component level as well as the route level
+- [x] Write tests for filter and sort behaviour, status action visibility by status and role, and the Admin-only reassign control
 
 ## Phase 7: Accessibility and quality pass
 
