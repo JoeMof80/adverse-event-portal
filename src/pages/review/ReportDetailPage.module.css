@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
   gap: var(--space-6);
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .main {
