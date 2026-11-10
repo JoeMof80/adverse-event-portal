@@ -1,9 +1,11 @@
-import { PageLayout } from '@/components'
+import { RouterProvider } from 'react-router/dom'
+import { AuthProvider } from '@/auth/AuthProvider'
+import { router } from '@/routes/router'
 
 export default function App() {
   return (
-    <PageLayout>
-      <h1>Adverse Event Reporting Portal</h1>
-    </PageLayout>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }

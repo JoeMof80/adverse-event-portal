@@ -31,16 +31,16 @@ Each phase is delivered as one pull request on a feature branch, reviewed and me
 
 ## Phase 3: Authentication stub and role-aware shell
 
-- [ ] Define the User type with id, name and role, and the three roles
-- [ ] Install Mock Service Worker and register the browser worker
-- [ ] Build the fake authorise page offering sign-in as Reporter, Reviewer or Admin
-- [ ] Implement the OIDC-shaped flow: redirect to authorise, return with a code, exchange the code for an ID token through a mocked endpoint
-- [ ] Store the session in memory with sessionStorage fallback, and expose it through an auth context
-- [ ] Add React Router with routes for sign-in, callback, reporter home, new report, my reports, review queue and report detail
-- [ ] Add route guards that redirect unauthenticated users to sign-in and unauthorised roles to their home
-- [ ] Build the header navigation that shows only the links allowed for the current role
-- [ ] Add sign-out
-- [ ] Write tests for the route guards and the role-dependent navigation
+- [x] Define the User type with id, name and role, and the three roles
+- [x] Install Mock Service Worker and register the browser worker
+- [x] Build the fake authorise page offering sign-in as Reporter, Reviewer or Admin
+- [x] Implement the OIDC-shaped flow: redirect to authorise, return with a code, exchange the code for an ID token through a mocked endpoint
+- [x] Store the session in memory with sessionStorage fallback, and expose it through an auth context
+- [x] Add React Router with routes for sign-in, callback, reporter home, new report, my reports, review queue and report detail
+- [x] Add route guards that redirect unauthenticated users to sign-in and unauthorised roles to their home
+- [x] Build the header navigation that shows only the links allowed for the current role
+- [x] Add sign-out
+- [x] Write tests for the route guards and the role-dependent navigation
 
 ## Phase 4: Data model and mock API
 
